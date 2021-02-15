@@ -23,7 +23,7 @@ variable "blob_name" {
 }
 
 provider "azurerm" {
-  features = {}
+  features {}
 }
 
 resource "azurerm_storage_account" "blob" {
@@ -35,7 +35,7 @@ resource "azurerm_storage_account" "blob" {
 }
 
 resource "azurerm_storage_container" "blob" {
-  name                  = format("%s/%s",var.blob_name,"-container")
+  name                  = format("%s/%s", var.blob_name, "-container")
   storage_account_name  = azurerm_storage_account.blob.name
   container_access_type = "private"
 }
